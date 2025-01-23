@@ -2,7 +2,7 @@
 //  SelectCurrency.swift
 //  CurrencyConvertor_SWIFTUI
 //
-//  Created by Akshay  on 2025-01-20.
+//  Created by Akshay  on 2025-01-22.
 //
 
 import SwiftUI
@@ -22,7 +22,13 @@ struct SelectCurrency: View {
                 // Text
                 Text("Selct the currency you are starting with:")
                     .fontWeight(.bold)
+                
                 // Currency Icons
+                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+                    ForEach(0..<5) { _ in
+                        CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
+                    }
+                }
                 
                 // Text
                 Text("Select the currency you would like to convert to:")

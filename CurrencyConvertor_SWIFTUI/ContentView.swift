@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ContentView: View {
     @State var showExchangeInfo: Bool = false
@@ -19,6 +20,8 @@ struct ContentView: View {
     
     @State var leftCurrency = Currency.silverPiece
     @State var rightCurrency: Currency = .goldPiece
+    
+    let toolTip = CurrencyToolTip()
     
     var body: some View {
         ZStack {
@@ -55,16 +58,18 @@ struct ContentView: View {
                             // Currency text
                             Text(leftCurrency.name)
                                 .font(.headline)
-                                .foregroundColor(Color.white)
+                                .foregroundStyle(.white)
                             
                         }
                         .padding(.bottom, -5)
                         .onTapGesture {
                             showSeclectCurrency.toggle()
+                            toolTip.invalidate(reason: .actionPerformed)
                         }
                         .onChange(of: leftCurrency) {
                             leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
                         }
+                        .popoverTip(toolTip, arrowEdge: .bottom)
                         
                         // Text field
                         TextField("Amount", text: $leftAmount)
@@ -101,6 +106,7 @@ struct ContentView: View {
                         .padding(.bottom, -5)
                         .onTapGesture {
                             showSeclectCurrency.toggle()
+                            toolTip.invalidate(reason: .actionPerformed)
                         }
                         .onChange(of: rightCurrency) {
                             rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
@@ -136,14 +142,17 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                     }
                     .padding(.trailing)
-                    .sheet(isPresented: $showExchangeInfo) {
-                        ExchangeInfo()
-                    }
-                    .sheet(isPresented: $showSeclectCurrency) {
-                        SelectCurrency(topCurrency: $leftCurrency, bottomCurrency: $rightCurrency)
-                    }
                 }
             }
+        }
+        .task {
+            try? Tips.configure()
+        }
+        .sheet(isPresented: $showExchangeInfo) {
+            ExchangeInfo()
+        }
+        .sheet(isPresented: $showSeclectCurrency) {
+            SelectCurrency(topCurrency: $leftCurrency, bottomCurrency: $rightCurrency)
         }
     }
 }

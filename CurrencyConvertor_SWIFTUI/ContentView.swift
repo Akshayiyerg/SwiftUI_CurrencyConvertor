@@ -92,7 +92,7 @@ struct ContentView: View {
                         }
                         
                         // Text field
-                        TextField("Amount", text: $leftAmount)
+                        TextField("Amount", text: $rightAmount)
                             .textFieldStyle(.roundedBorder)
                             .multilineTextAlignment(.trailing)
                     }

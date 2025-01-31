@@ -1,11 +1,5 @@
 # SwiftUI_CurrencyConvertor
 
-![image](https://github.com/user-attachments/assets/a5b641b4-d92b-4ede-be82-479bc6aa6830)
-
-![image](https://github.com/user-attachments/assets/39366577-b7c8-4359-9406-cd0613c3da34)
-
-![image](https://github.com/user-attachments/assets/f6fd9dd9-9952-4ddd-ac7e-9762cb6312c0)
-
-
-
-
+![Simulator Screenshot - iPhone 16 Pro - 2025-01-28 at 21 39 18](https://github.com/user-attachments/assets/07f11ff1-f739-4e94-87ed-cacd28df43a5)
+![Simulator Screenshot - iPhone 16 Pro - 2025-01-30 at 20 26 38](https://github.com/user-attachments/assets/19b0cabf-d0ea-4caf-aeb9-922517e0b484)
+![Simulator Screenshot - iPhone 16 Pro - 2025-01-28 at 21 39 26](https://github.com/user-attachments/assets/7f9a5735-59c6-41a1-8faa-7723be8acf85)
